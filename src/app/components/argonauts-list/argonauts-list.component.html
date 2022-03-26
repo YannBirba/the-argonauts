@@ -1,0 +1,10 @@
+<h2>Ajouter un(e) Argonaute</h2>
+<form [formGroup]="argonautForm" (ngSubmit)="onSubmit($event)">
+  <label for="name">Nom de l'argonaute</label>
+  <input (keyup.enter)="onSubmit($event)" formControlName="name" type="text" id="name" name="name" value=""
+    placeholder="Charalampos">
+  <button [disabled]="argonautForm.invalid" type="submit">Ajouter</button>
+</form>
+<h2>Membres de l'équipage</h2>
+<app-argonaut *ngFor="let argonaut of argonautsList$ | async; trackBy:trackBy" [argonaut]="argonaut"
+  [image]="argonautImage(argonaut.id)" (delete)="onDelete($event)" (update)="onUpdate($event)"></app-argonaut>

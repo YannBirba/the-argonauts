@@ -1,0 +1,5 @@
+<div class="argonaut">
+    <img width="75" height="75" class="argonaut-img" [src]="image" alt="">
+    <p contenteditable (input)="onUpdate($event)" class="argonaut-name">{{argonaut?.name}}</p>
+    <button (click)="onDelete(argonaut?.id)" class="btn btn-delete">Supprimer</button>
+</div>

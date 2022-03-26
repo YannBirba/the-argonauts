@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL: 'https://the-argonauts-api.herokuapp.com/api/',
+  IMAGE_API_URL: 'https://joeschmoe.io/api/v1/random'
 };
 
 /*
