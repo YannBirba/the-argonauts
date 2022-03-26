@@ -41,9 +41,4 @@ export class ArgonautService {
       environment.API_URL + this.API_ENDPOINT + '/' + id
     );
   }
-
-  getImage(): Observable<string> {
-    // adding cross origin to the image url
-    return this.http.get<string>(environment.IMAGE_API_URL);
-  }
 }

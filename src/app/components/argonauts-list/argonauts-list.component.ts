@@ -54,7 +54,7 @@ export class ArgonautsListComponent implements OnDestroy, OnInit {
 
   public argonautImage(id: number | undefined): string {
     if (id) {
-      return `https://joeschmoe.io/api/v1/${id.toString()}`;
+      return `https://joeschmoe.io/api/v1/male/${id.toString()}`;
     } else {
       return '';
     }

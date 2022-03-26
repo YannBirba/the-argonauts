@@ -5,6 +5,14 @@
     placeholder="Charalampos">
   <button [disabled]="argonautForm.invalid" type="submit">Ajouter</button>
 </form>
+<div *ngIf="(argonautsList$ | async) as argonautsList" class="members-container">
 <h2>Membres de l'équipage</h2>
-<app-argonaut *ngFor="let argonaut of argonautsList$ | async; trackBy:trackBy" [argonaut]="argonaut"
+<div class="members">
+    <h3 *ngIf="argonautsList.length > 0; else loading">Actuellement dans l'équipage : <span class="number-members">{{argonautsList.length}}</span></h3>
+<app-argonaut *ngFor="let argonaut of argonautsList; trackBy:trackBy" [argonaut]="argonaut"
   [image]="argonautImage(argonaut.id)" (delete)="onDelete($event)" (update)="onUpdate($event)"></app-argonaut>
+</div>
+</div>
+<ng-template #loading>
+    Loading ...
+</ng-template>

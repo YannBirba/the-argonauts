@@ -1,9 +1,11 @@
 .argonaut{
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: center;
     gap: 2rem;
     padding: 1rem;
+    max-width: 35rem;
+    margin-inline: auto;
     .argonaut-img{
         border-radius: 50%;
         -webkit-border-radius: 50%;
