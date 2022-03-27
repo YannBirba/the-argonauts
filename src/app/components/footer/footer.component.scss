@@ -1,0 +1,36 @@
+:host {
+  background: #f76c6c;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: #fdfdfd;
+  font-weight: 700;
+
+  *::selection {
+    background: #fdfdfd;
+    color: #333;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    a {
+      color: #000;
+      text-decoration: underline;
+
+      &:hover {
+        color: #fdfdfd;
+        text-decoration: none;
+
+      }
+    }
+  }
+}

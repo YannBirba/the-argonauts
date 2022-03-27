@@ -1,24 +1,61 @@
-.argonaut{
+:host {
+  flex: 0 0 calc(33.333333% - 2rem);
+  background: #fff;
+  box-shadow: 0px 5px 15px 0px rgba(25, 25, 25, 0.1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #fff;
+    box-shadow: 0px 5px 20px 10px rgba(25, 25, 25, 0.1);
+  }
+
+  .argonaut {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 2rem;
     padding: 1rem;
-    max-width: 35rem;
-    margin-inline: auto;
-    .argonaut-img{
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
-        background: #333;
+
+    .argonaut-img {
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background: #fdfdfd;
+      box-shadow: 0px 5px 20px 10px rgba(25, 25, 25, 0.1);
     }
-    .argonaut-name{
-        font-weight: 700;
-        font-size: 1.3rem;
-        &::first-letter{
-            text-transform: uppercase;
-        }
+
+    .argonaut-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
     }
+  }
+
+
+}
+
+@media screen and (max-width: 1300px) {
+  :host {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  :host {
+    .argonaut {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :host {
+    flex: 0 0 90%;
+  }
 }

@@ -3,16 +3,16 @@
   <label for="name">Nom de l'argonaute</label>
   <input (keyup.enter)="onSubmit($event)" formControlName="name" type="text" id="name" name="name" value=""
     placeholder="Charalampos">
-  <button [disabled]="argonautForm.invalid" type="submit">Ajouter</button>
+  <button class="btn" [disabled]="argonautForm.invalid" type="submit">Ajouter</button>
 </form>
+<h2 class="members-title">Membres de l'équipage</h2>
 <div *ngIf="(argonautsList$ | async) as argonautsList" class="members-container">
-<h2>Membres de l'équipage</h2>
 <div class="members">
-    <h3 *ngIf="argonautsList.length > 0; else loading">Actuellement dans l'équipage : <span class="number-members">{{argonautsList.length}}</span></h3>
-<app-argonaut *ngFor="let argonaut of argonautsList; trackBy:trackBy" [argonaut]="argonaut"
+    <h3 class="actual-members" *ngIf="argonautsList.length > 0; else loading">Actuellement dans l'équipage : <span class="number-members">{{argonautsList.length}} argonautes</span></h3>
+<app-argonaut @argonautAnimation *ngFor="let argonaut of argonautsList; trackBy:trackBy" [argonaut]="argonaut"
   [image]="argonautImage(argonaut.id)" (delete)="onDelete($event)" (update)="onUpdate($event)"></app-argonaut>
 </div>
 </div>
-<ng-template #loading>
-    Loading ...
+<ng-template #loading class="loader">
+  <img loading="lazy" width="150" height="150" src="../assets/sailboat.png" alt="">
 </ng-template>

@@ -1,14 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, map, Observable, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Argonaut } from 'src/models/argonaut.model';
 import { ArgonautService } from 'src/shared/services/argonaut/argonaut.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { trigger, style, animate, transition } from '@angular/animations';
 @Component({
   selector: 'app-argonauts-list',
   templateUrl: './argonauts-list.component.html',
   styleUrls: ['./argonauts-list.component.scss'],
+  animations: [
+    trigger('argonautAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1, width: '100%' }),
+        animate('300ms', style({ opacity: 0, width: '0px' })),
+      ]),
+    ]),
+  ],
 })
 export class ArgonautsListComponent implements OnDestroy, OnInit {
   public argonautsSubject: BehaviorSubject<Argonaut[]> = new BehaviorSubject(
@@ -79,7 +91,7 @@ export class ArgonautsListComponent implements OnDestroy, OnInit {
         },
         error: (error) => {
           console.error('error', error);
-        }
+        },
       });
     }
   }
@@ -93,16 +105,16 @@ export class ArgonautsListComponent implements OnDestroy, OnInit {
         },
         error: (error) => {
           console.error('error', error);
-        }
+        },
       });
     }
   }
-  onUpdate(argonaut : Argonaut): void {
+  onUpdate(argonaut: Argonaut): void {
     if (argonaut) {
       this.subscription = this.argonautService.update(argonaut).subscribe({
         error: (error) => {
           console.error('error', error);
-        }
+        },
       });
     }
   }
