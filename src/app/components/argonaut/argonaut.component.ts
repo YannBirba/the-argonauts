@@ -21,7 +21,6 @@ export class ArgonautComponent implements OnInit {
   }
 
   public onUpdate(event: any): void {
-    console.log(event.target.innerText);
     if (this.argonaut) {
       if (event.target.innerText && event.target.innerText.length > 2 && event.target.innerText.length < 20) {
         this.update.emit({
@@ -31,7 +30,6 @@ export class ArgonautComponent implements OnInit {
           updated_at: this.argonaut.updated_at,
         });
       }
-      console.log(this.argonaut.name);
     }
   }
 }
